@@ -1,3 +1,3 @@
 # F16-CSCI241
 
-This is lab 1
+This is the first lab, lab1.
