@@ -30,26 +30,36 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 	
 	echo "<table>";
 	echo "<tr><td>Invoice Item 1:	" . $_POST["invoiceItem1"]. "</td>"; 
-	echo "<td>Price:	" . $_POST["invoiceItem1Price"]. "</td></tr>";
+	echo "<td>Price:	$" . $_POST["invoiceItem1Price"]. "</td></tr>";
 	echo "<tr><td>Invoice Item 2:	" . $_POST["invoiceItem2"]. "</td>"; 
-	echo "<td>Price:	" . $_POST["invoiceItem2Price"]. "</td></tr>";
+	echo "<td>Price:	$" . $_POST["invoiceItem2Price"]. "</td></tr>";
 	echo "<tr><td>Invoice Item 3:	" . $_POST["invoiceItem3"]. "</td>"; 
-	echo "<td>Price:	" . $_POST["invoiceItem3Price"]. "</td></tr>";
-	echo "<tr><td>Invoice Item 4:	" . $_POST["invoiceItem4"]. "</td>"; 
-	echo "<td>Price:"	 . $_POST["invoiceItem4Price"]. "</td></tr>";
+	echo "<td>Price:	$" . $_POST["invoiceItem3Price"]. "</td></tr>";
+	echo "<tr><td>Invoice Item 4:	" . $_POST["invoiceItem4"]. "</td>";
+	echo "<td>Price:	$"	 . $_POST["invoiceItem4Price"]. "</td></tr>";
 	
 	$subtotal = $_POST["invoiceItem1Price"] + $_POST["invoiceItem2Price"] + $_POST["invoiceItem3Price"] + $_POST["invoiceItem4Price"];
 	
-	echo "<tr><td><br>Subtotal:	" . $subtotal;
+	echo "<tr><td><br>Subtotal:	$" . $subtotal;
 	echo "<br>";
 	
 	if(isset($_POST["tax"]))
 	{
 		$taxTotal = $subtotal * 0.7;
-		echo "Tax:	" . $taxTotal;
+		echo "Tax:	$" . $taxTotal;
 		echo "<br>";
 		$total = $subtotal + $taxTotal;
-		echo "Total:	" . $total;
+		echo "Total:	$" . $total;
+		echo "</td></tr>";
+	}
+	
+	else
+	{
+		$taxTotal = $subtotal * 0.7;
+		echo "Tax:	$0.00";
+		echo "<br>";
+		$total = $subtotal;
+		echo "Total:	$" . $total;
 		echo "</td></tr>";
 	}
 }
