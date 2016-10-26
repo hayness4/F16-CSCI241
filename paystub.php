@@ -81,10 +81,10 @@
 			
 				echo "<table>";
 				echo "<tr><td ></td><th>Hours</th><th>Gross Pay</th></tr>";
-				echo "<tr><th>Regular:</th><td>" . $hours . "</td><td>" . "$" . $regWage . "</td></tr>";
-				echo "<tr><th>Overtime:</th><td>" . $overtime . "</td><td>" . "\$" . $otWage . "</td></tr>";
+				echo "<tr><th>Regular:</th><td>" . $hours . "</td><td>" . "$" . number_format(floor($regWage*100)/100,2, '.', '') . "</td></tr>";
+				echo "<tr><th>Overtime:</th><td>" . $overtime . "</td><td>" . "\$" . number_format(floor($otWage*100)/100,2, '.', '') . "</td></tr>";
 				echo "<tr><td><br></td><td></td><td></td></tr>";
-				echo"<tr><th>Total:</th><td>" . $totalHours . "</td><td>" . "\$" . $totalPay . "</td></tr>";
+				echo"<tr><th>Total:</th><td>" . $totalHours . "</td><td>" . "\$" . number_format(floor($totalPay*100)/100,2, '.', '') . "</td></tr>";
 				echo "</table>";
 			}
 			function calculateDisbursement($totalPay)
@@ -134,7 +134,7 @@
 				echo "<tr><th>10&cent</th><td>" . $dimes . "</td><td>" . "$". ($dimes*.10) . "</td></tr>";
 				echo "<tr><th>5&cent</th><td>" . $nickels . "</td><td>" . "$" . ($nickels*.05) . "</td></tr>";
 				echo "<tr><th>1&cent</th><td>" . $pennies . "</td><td>" . "$" . ($pennies*.01) . "</td></tr>";
-				echo "<tr><th>Total:</th><td></td><td>" . "$". $totalPay . "</td></tr>";
+				echo "<tr><th>Total:</th><td></td><td>" . "$". number_format(floor($totalPay*100)/100,2, '.', '') . "</td></tr>";
 				echo "</table>";
 			}
 			echo calculateDisbursement($totalPay);

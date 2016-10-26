@@ -10,8 +10,8 @@
 	<body>
 		<font size="5">POS Helper</font><br><br>
 		<form method="POST" action="vending.php">
-			Total Bill: <input type="number" name="total"></input><br><br>
-			Tendered: <input type="number" name="tendered"></input><br><br>
+			Total Bill: <input type="number_format" name="total"></input><br><br>
+			Tendered: <input type="number_format" name="tendered"></input><br><br>
 			<input type="submit" value="submit" name="submit">
 		</form>
 	</body>	
@@ -46,7 +46,7 @@
 		
 		if(is_numeric($total) && is_numeric($tendered))
 		{
-			echo"<h2>Receipt</h2><br><br>";
+			echo"<h2>Receipt</h2>";
 			echo "<table>";
 			echo "<tr><td>" . "Total Bill:	" . $total . "</td></tr>";
 			echo "<tr><td>" . "Tendered:	" . $tendered . "</td></tr>";
