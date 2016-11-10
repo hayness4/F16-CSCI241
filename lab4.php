@@ -28,19 +28,25 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
         <title>Times Tables</title>
     </head>
     <body> 
-	<?php 
+<?php 
 			
 		$start = $_POST["start"];
 		$end = $_POST["end"];
-					
-		if(is_numeric($start) && is_numeric($end))
+		
+		if($start > $end)
+		{
+			echo "Start number should be less than the End number.";
+		}
+		
+		else if((int)$start == $start && (int)$end == $end)
 		{
 			echo "<table><tr><td>";
 			for($col = $start; $col <= $end; $col++)
-			{
-				echo "<th>" .  $col . "</th>";
-			}
+ 	  		{
+			    echo "<th>" .  $col . "</th>";
+		    }
 		
+			echo "</tr></td>";
 			echo "<tr>";
 	    
 			for($row = $start; $row <= $end; $row++)
@@ -48,24 +54,18 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 				echo "<th>" . $row . "</th>";
 				
 				for($col = $start; $col <= $end; $col++)
-				{
+    			{
 					echo "<td>" . ($row * $col) . "</td>";
-				}
-						
-				echo "</td></tr>";
+	   			}
+				echo "</tr>";
 			}
 			echo "</table>";
 			echo "</body></html>";
 		}
 		
-		if($start < 0 && $end < 0 && $end != $start)
+		else
 		{
-			echo "Go back and change your numbers!";
-		}
-		
-		if(is_nan($start) && is_nan($end))
-		{
-			echo "Go back and put a number!";
+			echo "Please go back and enter correct data!";	
 		}
 	?>
 <?php
