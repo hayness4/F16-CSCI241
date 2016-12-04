@@ -2,16 +2,9 @@
 require_once("header.php");
 ?>
 
-<h2>Index</h2>
-<tr>
-	<td><a href="index.php">Home</a></td>
-	<td><a href="events.php">Events</a></td>
-	<td><a href="login.php">Login</a></td>
-</tr>
-<h4>Welcome to the site!<br>
-Here you can manage your events<br>
-by adding events, deleting events,<br>
-and also see your current events.</h4>
+<h1>Sports Champions Trivia</h1>
+<img src="/ACC.hayness4/public_html/F16-CSCI241/champions.jpg" style="width:500px;height:500px;"><br><br>
+<button type="button" onclick="parent.location='game.php'">PLAY GAME</button>
 
 <?php
 require("footer.php");

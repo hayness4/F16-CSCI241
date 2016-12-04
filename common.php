@@ -58,5 +58,4 @@ function deleteLine($filename, $line)
 	fclose($fileResource);
 	
 	return null;
-	
 }
