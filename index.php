@@ -1,54 +1,20 @@
 <?php
 require_once("header.php");
 ?>
-	<h1>Index:</h1>
-	<?php
-	
-	$articlesText = fopen("articles.txt", "r");
-	
-	if(!is_resource($articlesText))
-	{
-		echo "Could not open!";
-		exit();
-	}
-	
-	while($article= fgets($articlesText))
-	{
-		$articles[] = explode("|",$article);
-	}
-	
-	fclose($articlesText);
-	
-	$count=0;
-	
-	foreach($articles as $position=> $article)
-	{
-		echo "<a href='news.php?id=$position'>$article[0]</a>"; 
-		echo "<br>";
-		echo substr($article[1],0,100);
-		echo "<br><br>";
-		$count++;
-	
-		if($count==3)
-		{
-			break;
-		}
-	}
-	if (isset($_COOKIE['views']))
-	{
-		$cookie = ++$_COOKIE['views'];
-		setcookie("views", $cookie);
-					
-		if ($cookie > 5)
-		{
-			header("Location: subscription.php"); 
-		}
-	}
-	else
-	{
-		$cookie = 1;
-		setcookie("views", $cookie);
-	}
+
+<h2>Index</h2>
+<tr>
+	<td><a href="index.php">Home</a></td>
+	<td><a href="events.php">Events</a></td>
+	<td><a href="login.php">Login</a></td>
+</tr>
+<h4>Welcome to the site!<br>
+Here you can manage your events<br>
+by adding events, deleting events,<br>
+and also see your current events.</h4>
+
+<?php
+require("footer.php");
 ?>
 
 <?php
