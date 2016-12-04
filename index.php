@@ -16,7 +16,3 @@ and also see your current events.</h4>
 <?php
 require("footer.php");
 ?>
-
-<?php
-require("footer.php");
-?>
