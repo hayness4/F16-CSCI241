@@ -23,9 +23,7 @@ else
    echo 'There was a problem with your e-mail (' . $_POST['email'] . ')';   
 }
 ?>
-
 <br><a href="http://deltona.birdnest.org/~acc.hayness4/F16-CSCI241/index.php">Home</a>
-
 <?php
 require("footer.php");
 ?>
