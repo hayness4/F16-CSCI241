@@ -14,7 +14,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	$from = "no-reply@winthrop.edu";
 	$headers = "From:" . $from . "\r\n";
 	$subject = "Your Events List";
-	$body = "http://deltona.birdnest.org/~acc.hayness4/F15-CSCI241/lab8/events.php";
+	$body = "http://deltona.birdnest.org/~acc.hayness4/F16-CSCI241/events.php";
 	if( filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) )
 	{ 
 	    if (mail($to, $subject, $body, $headers, "-f " . $from))

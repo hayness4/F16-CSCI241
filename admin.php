@@ -1,6 +1,11 @@
 <?php
 require_once("header.php");
 require_once("common.php");
+
+if(!($_SESSION["username"] == "admin" && $_SESSION["password"] == "password"))
+{
+	exit("PAGE RESTRICTED!");
+}
 ?>
 <h2>Admin</h2>
 <tr>
@@ -46,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	if(isset($_POST["deleteEvent"]))
 	{
-		deleteLine("events.txt",$_POST["deleteEvent"]);
+		deleteLine("events.txt", "w",$_POST["deleteEvent"]);
 		
 		header("Location: admin.php");
 		
@@ -56,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 		$event[] = $_POST["eventName"];
 		$event[] = $_POST["eventLocation"];
 	
-		appendLine("events.txt", implode("|",$event));
+		appendLine("events.txt", "a", implode("|",$event));
 		header("Location: admin.php");
 	}
 }

@@ -10,10 +10,10 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 <form method="POST" action="admin.php">
 	<table>
 		<tr>
-			<td>Username:<input type="text" name="username" required="required"></td>
+			<td>Username:<input type="text" name="username" required></td>
 		</tr>
 		<tr>
-			<td>Password:<input type="password" name= "password" required="required"></td>
+			<td>Password:<input type="password" name= "password" required></td>
 		</tr>
 		<tr>
 			<td><input type="submit" value="submit" name="submit"></td>
@@ -21,18 +21,22 @@ if($_SERVER["REQUEST_METHOD"] == "GET")
 	</table>
 </form>
 <?php
-} else if($_SERVER["REQUEST_METHOD"] == "POST")
-{
-	if($_POST["username"] == admin && $_POST["password"] == password)
+}else if($_SERVER["REQUEST_METHOD"] == "POST")
+{	
+	if($_POST["username"] == "admin" && $_POST["password"] == "password")
 	{
-			$_SESSION["username"] = admin;
-			$_SESSION["password"] = password;
+		$_SESSION["username"] = "admin";
+		$_SESSION["password"] = "password";
+	} 
+
+	else 
+	{
+		exit();
 	}
-}
-else {
-	exit();
+	
 }
 ?>
+
 <?php
 require("footer.php");
 ?>
